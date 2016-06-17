@@ -46,7 +46,9 @@ class LightOpenID
         $this->set_realm($host);
         $this->set_proxy($proxy);
 
-        $uri = rtrim(preg_replace('#((?<=\?)|&)openid\.[^&]+#', '', $_SERVER['REQUEST_URI']), '?');
+        $uri = parse_url($host);
+
+        $uri = rtrim(preg_replace('#((?<=\?)|&)openid\.[^&]+#', '', $uri['path'].'?'.$uri['query']), '?');
         $this->returnUrl = $this->trustRoot . $uri;
 
         $this->data = ($_SERVER['REQUEST_METHOD'] === 'POST') ? $_POST : $_GET;
