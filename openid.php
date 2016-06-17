@@ -48,7 +48,7 @@ class LightOpenID
 
         $uri = parse_url($host);
 
-        $uri = rtrim(preg_replace('#((?<=\?)|&)openid\.[^&]+#', '', $uri['path'].'?'.$uri['query']), '?');
+        $uri = rtrim(preg_replace('#((?<=\?)|&)openid\.[^&]+#', '', $uri['path'].(isset($uri['query'])?'?'.$uri['query']:'')), '?');
         $this->returnUrl = $this->trustRoot . $uri;
 
         $this->data = ($_SERVER['REQUEST_METHOD'] === 'POST') ? $_POST : $_GET;
