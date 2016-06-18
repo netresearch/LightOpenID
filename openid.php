@@ -904,8 +904,10 @@ class LightOpenID
                              .  'openid.claimed_id=' . $this->claimed_id;
         }
 
-        if ($this->data['openid_return_to'] != $this->returnUrl) {
-            # The return_to url must match the url of current request.
+
+        if (parse_url($this->data['openid_return_to'], PHP_URL_HOST) != parse_url($this->returnUrl, PHP_URL_HOST)) {
+            # DEPRECATED # The return_to url must match the url of current request.
+            # The return_to url host must match the url host of the current request
             # I'm assuming that no one will set the returnUrl to something that doesn't make sense.
             return false;
         }
