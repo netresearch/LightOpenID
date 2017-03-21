@@ -31,6 +31,8 @@ class LightOpenID
             , $xrds_override_pattern = null, $xrds_override_replacement = null;
     static protected $ax_to_sreg = array(
         'namePerson/friendly'     => 'nickname',
+        'namePerson/first'        => 'firstname',
+        'namePerson/last'         => 'lastname',
         'contact/email'           => 'email',
         'namePerson'              => 'fullname',
         'birthDate'               => 'dob',
