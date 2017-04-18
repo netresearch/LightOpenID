@@ -338,7 +338,7 @@ class LightOpenID
                     'ignore_errors' => true,
                 ),
                 'ssl' => array(
-                    'CN_match' => $this->cnmatch
+                    'peer_name' => $this->cnmatch
                 )
             );
             $url = $url . ($params ? '?' . $params : '');
@@ -356,7 +356,7 @@ class LightOpenID
                     'ignore_errors' => true,
                 ),
                 'ssl' => array(
-                    'CN_match' => $this->cnmatch
+                    'peer_name' => $this->cnmatch
                 )
             );
             if (!empty($this->proxy)) {
@@ -381,7 +381,7 @@ class LightOpenID
                 'ignore_errors' => false
             );
             $default['ssl'] += array(
-                'CN_match' => ''
+                'peer_name' => ''
             );
             
             $opts = array(
@@ -392,7 +392,7 @@ class LightOpenID
                     'ignore_errors' => true,
                 ),
                 'ssl' => array(
-                    'CN_match' => $this->cnmatch
+                    'peer_name' => $this->cnmatch
                 )
             );
             
