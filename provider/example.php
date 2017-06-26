@@ -17,7 +17,7 @@ class BasicProvider extends LightOpenIDProvider
         
         # If we use select_id, we must disable it for identity pages,
         # so that an RP can discover it and get proper data (i.e. without select_id)
-        if(isset($_GET['id'])) {
+        if (isset($_GET['id'])) {
             $this->select_id = false;
         }
     }
@@ -30,7 +30,7 @@ class BasicProvider extends LightOpenIDProvider
     
     function checkid($realm, &$attributes)
     {
-        if(!isset($_SERVER['PHP_AUTH_USER'])) {
+        if (!isset($_SERVER['PHP_AUTH_USER'])) {
             return false;
         }
         
@@ -45,8 +45,8 @@ class BasicProvider extends LightOpenIDProvider
         
         return false;
     }
-    
 }
+
 $op = new BasicProvider;
 $op->login = 'test';
 $op->password = 'test';
